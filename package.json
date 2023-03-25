@@ -1,13 +1,13 @@
 {
-  "name": "typescript",
+  "name": "number_guess_sta_ts",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
   "type": "module",
   "dependencies": {
+    "ansi-escapes": "^6.1.0",
     "ansi-regex": "^6.0.1",
     "ansi-styles": "^6.2.1",
-    "ansi-escapes": "^6.1.0",
     "base64-js": "^1.5.1",
     "bl": "^5.1.0",
     "buffer": "^6.0.3",
@@ -28,6 +28,7 @@
     "inherits": "^2.0.4",
     "inquirer": "^9.1.5",
     "is-interactive": "^2.0.0",
+    "is-unicode-supported": "^1.3.0",
     "lodash": "^4.17.21",
     "log-symbols": "^5.1.0",
     "mimic-fn": "^2.1.0",
@@ -36,7 +37,6 @@
     "ora": "^6.2.0",
     "os-tmpdir": "^1.0.2",
     "readable-stream": "^3.6.2",
-    "is-unicode-supported": "^1.3.0",
     "restore-cursor": "^4.0.0",
     "run-async": "^2.4.1",
     "rxjs": "^7.8.0",
@@ -50,12 +50,11 @@
     "through": "^2.3.8",
     "tmp": "^0.0.33",
     "tslib": "^2.5.0",
+    "type-fest": "^3.7.0",
     "util-deprecate": "^1.0.2",
     "wcwidth": "^1.0.1",
-    "type-fest": "^3.7.0",
     "wrap-ansi": "^8.1.0"
   },
-  "devDependencies": {},
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -68,5 +67,11 @@
   "bugs": {
     "url": "https://github.com/syedtalhaaskari/typescript/issues"
   },
-  "homepage": "https://github.com/syedtalhaaskari/typescript#readme"
+  "homepage": "https://github.com/syedtalhaaskari/typescript#readme",
+  "devDependencies": {
+    "@types/inquirer": "^9.0.3"
+  },
+  "bin": {
+    "number_guess_sta_ts": "./index.js"
+  }
 }
