@@ -67,7 +67,7 @@
   "bugs": {
     "url": "https://github.com/syedtalhaaskari/typescript/issues"
   },
-  "homepage": "https://github.com/syedtalhaaskari/typescript#readme",
+  "homepage": "https://github.com/syedtalhaaskari/typescript/blob/project01_number_guessing_game/readme.md",
   "devDependencies": {
     "@types/inquirer": "^9.0.3"
   },
