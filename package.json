@@ -1,6 +1,6 @@
 {
-  "name": "typescript",
-  "version": "1.0.0",
+  "name": "calculator_talha",
+  "version": "1.0.1",
   "description": "",
   "type": "module",
   "main": "./app.js",
@@ -11,7 +11,7 @@
     "type": "git",
     "url": "git+https://github.com/syedtalhaaskari/typescript.git"
   },
-  "author": "",
+  "author": "Syed Talha Askari",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/syedtalhaaskari/typescript/issues"
@@ -23,5 +23,8 @@
   },
   "devDependencies": {
     "@types/inquirer": "^9.0.3"
+  },
+  "bin": {
+    "calculator_sta_ts": "./app.js"
   }
 }

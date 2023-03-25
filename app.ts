@@ -1,3 +1,5 @@
+#!/usr/bin/env node
+
 import inquirer from "inquirer";
 import chalk from "chalk";
 
@@ -52,9 +54,13 @@ let answers: Answers = await getInputs();
 
 let output: Output = getOutput(answers);
 
+let display: string;
+
 if (typeof output === "number") {
-    console.log(chalk.bgGreenBright.whiteBright(`${answers.num1} ${answers.operator} ${answers.num2} = ${output}`));
+    display = chalk.whiteBright.bgGreenBright(`${answers.num1} ${answers.operator} ${answers.num2} = ${output}`);
 }
 else {
-    console.log(chalk.bgRedBright.whiteBright(`Invalid Input`));
+    display = chalk.whiteBright.bgRedBright(`Invalid Input`);
 }
+
+console.log(display);

@@ -1,3 +1,4 @@
+#!/usr/bin/env node
 import inquirer from "inquirer";
 import chalk from "chalk";
 const getInputs = async () => {
@@ -39,9 +40,11 @@ const getOutput = (answers) => {
 };
 let answers = await getInputs();
 let output = getOutput(answers);
+let display;
 if (typeof output === "number") {
-    console.log(chalk.bgGreenBright.whiteBright(`${answers.num1} ${answers.operator} ${answers.num2} = ${output}`));
+    display = chalk.whiteBright.bgGreenBright(`${answers.num1} ${answers.operator} ${answers.num2} = ${output}`);
 }
 else {
-    console.log(chalk.bgRedBright.whiteBright(`Invalid Input`));
+    display = chalk.whiteBright.bgRedBright(`Invalid Input`);
 }
+console.log(display);
