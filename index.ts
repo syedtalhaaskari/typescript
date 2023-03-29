@@ -10,13 +10,22 @@ type User = {
     amount: number;
 }
 
-let users: User[] = [];
+let users: User[] = [
+    {
+        id: 1,
+        pin: 1234,
+        name: "Admin",
+        amount: 100000
+    }
+];
 let currentUser: number;
 
-let getSignInDetails = async (signup?: boolean) => {
+let getSignInDetails = async (signup?: boolean, tryAgain?: boolean) => {
     console.clear();
     if (signup) {
         console.log(chalk.bgGreenBright("Sign Up Successful!."))
+    } if (tryAgain) {
+        console.log(chalk.bgRedBright("Invalid PIN/ID! Try Again."))
     }
 
     let signInDetails = await inquirer.prompt([
@@ -24,14 +33,19 @@ let getSignInDetails = async (signup?: boolean) => {
             name: "pin",
             type: "number",
             message: "Enter Your PIN: "
-        }
+        },
+        {
+            name: "name",
+            type: "input",
+            message: "Enter Your Name: "
+        },
     ])
-    let ind = users.findIndex(user => user.pin === signInDetails.pin);
+    let ind = users.findIndex(user => user.pin === signInDetails.pin && user.name === signInDetails.name);
     if (ind >= 0) {
         currentUser = ind;
         menu();
     } else {
-        console.log(chalk.bgRedBright("Invalid PIN! Try Again."))
+        getSignInDetails(false, true)
     }
 }
 
@@ -96,6 +110,7 @@ let menu = () => {
     console.log(chalk.bgWhiteBright.blackBright(" 2. Credit                                  "));
     console.log(chalk.bgWhiteBright.blackBright(" 3. Check Amount                            "));
     console.log(chalk.bgWhiteBright.blackBright(" 4. View Account Details                    "));
+    console.log(chalk.bgWhiteBright.blackBright(" 5. SignOut                                 "));
     chooseInputFromMenu();
 }
 
@@ -125,6 +140,10 @@ let chooseInputFromMenu = async () => {
             console.log(chalk.whiteBright(`Name: ${users[currentUser].name}`));
             console.log(chalk.whiteBright(`Amount: ${users[currentUser].amount}`));
             break
+        case 5:
+            currentUser = -1;
+            homePage();
+            return
         default:
             console.log(chalk.bgRedBright(`Invalid Option`));
     }
